@@ -1,0 +1,157 @@
+
+Tasks IDs and partitions 
+
+TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, localhost, executor driver, partition 1, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2, localhost, executor driver, partition 2, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3, localhost, executor driver, partition 3, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4, localhost, executor driver, partition 4, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5, localhost, executor driver, partition 5, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6, localhost, executor driver, partition 6, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7, localhost, executor driver, partition 7, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 8.0 in stage 0.0 (TID 8, localhost, executor driver, partition 8, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 9.0 in stage 0.0 (TID 9, localhost, executor driver, partition 9, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 10.0 in stage 0.0 (TID 10, localhost, executor driver, partition 10, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 11.0 in stage 0.0 (TID 11, localhost, executor driver, partition 11, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 12.0 in stage 0.0 (TID 12, localhost, executor driver, partition 12, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 13.0 in stage 0.0 (TID 13, localhost, executor driver, partition 13, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 14.0 in stage 0.0 (TID 14, localhost, executor driver, partition 14, PROCESS_LOCAL, 6006 bytes)
+ TaskSetManager: Starting task 15.0 in stage 0.0 (TID 15, localhost, executor driver, partition 15, PROCESS_LOCAL, 6006 bytes)
+  
+ 
+Running the tasks
+
+ Executor: Running task 5.0 in stage 0.0 (TID 5)
+ Executor: Running task 15.0 in stage 0.0 (TID 15)
+ Executor: Running task 3.0 in stage 0.0 (TID 3)
+ Executor: Running task 1.0 in stage 0.0 (TID 1)
+ Executor: Running task 2.0 in stage 0.0 (TID 2)
+ Executor: Running task 7.0 in stage 0.0 (TID 7)
+ Executor: Running task 10.0 in stage 0.0 (TID 10)
+ Executor: Running task 0.0 in stage 0.0 (TID 0)
+ Executor: Running task 12.0 in stage 0.0 (TID 12)
+ Executor: Running task 14.0 in stage 0.0 (TID 14)
+ Executor: Running task 13.0 in stage 0.0 (TID 13)
+ Executor: Running task 8.0 in stage 0.0 (TID 8)
+ Executor: Running task 6.0 in stage 0.0 (TID 6)
+ Executor: Running task 11.0 in stage 0.0 (TID 11)
+ Executor: Running task 9.0 in stage 0.0 (TID 9)
+ Executor: Running task 4.0 in stage 0.0 (TID 4)
+  
+A total of 184,549,376 bytes of data
+divided in 16 segments of 11,534,336 bytes each one
+
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:92274688+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:69206016+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:11534336+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:57671680+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:103809024+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:149946368+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:46137344+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:138412032+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:80740352+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:115343360+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:126877696+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:23068672+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:34603008+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:161480704+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:173015040+11534336
+ HadoopRDD: Input split: file:/C:/Users/2924/Desktop/HelloWorldSpark/src/dataBig.txt:0+11534336
+  
+
+
+Results
+  
+MODE = local[16] and 16 partitions:
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 0
+ Reduce process in Miliseconds: 812
+ Data Processing in Miliseconds: 812
+
+Represents a 28.8% of the time 
+required if the process is performed by just one core.
+(812 ms VS 2812 ms)
+--------------------------------
+--------------------------------
+
+
+MODE = local[16] and 8 partitions:
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 485
+ Map process in Miliseconds: 15
+ Reduce process in Miliseconds: 844
+ Data Processing in Miliseconds: 859
+--------------------------------
+--------------------------------
+  
+MODE = local[16] and NO partitions:
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 0
+ Reduce process in Miliseconds: 1047
+ Data Processing in Miliseconds: 1047
+--------------------------------
+--------------------------------
+  
+MODE = local[8] and 8 partitions:
+  
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 16
+ Reduce process in Miliseconds: 875
+ Data Processing in Miliseconds: 891
+--------------------------------
+--------------------------------
+  
+
+MODE: local[4] and 4 partitions:
+
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 0
+ Reduce process in Miliseconds: 1000
+ Data Processing in Miliseconds: 1000
+--------------------------------
+--------------------------------
+  
+  
+  
+MODE = local[2] and 2 partitions:
+  
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 0
+ Reduce process in Miliseconds: 1766
+ Data Processing in Miliseconds: 1766
+--------------------------------
+--------------------------------
+  
+
+MODE = local[1] and NO partitions:
+  
+--------------------------------
+--------------------------------
+ Result: 167772160
+ Data Loading in Miliseconds: 500
+ Map process in Miliseconds: 0
+ Reduce process in Miliseconds: 2812
+ Data Processing in Miliseconds: 2812
+--------------------------------
+--------------------------------
+  
+  
+  
+  

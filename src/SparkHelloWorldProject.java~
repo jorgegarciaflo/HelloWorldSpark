@@ -1,0 +1,128 @@
+
+
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.SparkConf;
+
+public class SparkHelloWorldProject
+{
+    // Configuration for a Spark application.
+    // Used to set various Spark parameters as key-value pairs.
+    static SparkConf sparkConfiguration;
+
+    // A SparkContext represents the connection to a Spark cluster,
+    // and can be used to create RDDs,
+    // accumulators and broadcast variables on that cluster.
+    static JavaSparkContext sparkContext;
+
+    // JavaRDD is a distributed collection of objects.
+    // Resilient Distributed Dataset (RDD)
+    // The input RDD is a collection of strings
+    static JavaRDD<String> distributedInputDataSet;
+    // The output RDD is a collection of integers
+    static JavaRDD<Integer> distributedOutputDataSet;
+    //
+    // The data processing functions
+    static MyDataProcessingFunction myDataProcessingFunction;
+    static MyResultIntegrationFunction myResultIntegrationFunction;
+    // The integrated result
+    static int integratedResult;
+    //
+    // Time variables
+    static long dataLoadingTime1;
+    static long dataLoadingTime2;
+    static long mapTime1;
+    static long mapTime2;
+    static long reduceTime1;
+    static long reduceTime2;
+    //
+
+
+    public static void main(String[] args)
+    {
+        // 1. Create the SPARK configuration.
+        // Loads defaults from system properties and the classpath
+        sparkConfiguration = new SparkConf();
+
+
+        // 2. Set the name of the application
+        sparkConfiguration.setAppName("sparkHelloWorld");
+
+
+        // 3. Determine the cores to be used by
+        // indicating the master URL to connect to.
+        // "local" to run locally with one thread.
+        // "local[2]" to run locally with 2 cores.
+        // "spark://master:7077" to run on a Spark standalone cluster.
+        sparkConfiguration.setMaster("local[16]");
+
+
+        // 4. Create the SPARK context
+        sparkContext = new JavaSparkContext(sparkConfiguration);
+
+
+        // 5. Create the distributed Input Data Set
+        // with data from a text file.
+        // Each line of the file represents a String
+        // which is an element of the distributed Input Data Set.
+        // The call may indicate the minimum of partitions.
+        // i.e. distributedInputDataSet = sparkContext.textFile("data.txt", 16);
+        dataLoadingTime1 = java.lang.System.currentTimeMillis();
+        distributedInputDataSet = sparkContext.textFile("data.txt",16);
+        dataLoadingTime2 = java.lang.System.currentTimeMillis();
+
+
+        // 6. Create the data processing function
+        // that will be applied to each element
+        // of the distributedInputDataSet
+        myDataProcessingFunction = new MyDataProcessingFunction();
+
+
+        // 7. Invoke the MAP function
+        // THe mapping implies the creation of references:
+        // - The data processing function will be related
+        // to each element of the distributed Input Data Set (RDD of Strings).
+        // - The result of the the data processing function will be related
+        // to each element of the distributed Output Data Set (RDD of  Integers).
+        mapTime1 = java.lang.System.currentTimeMillis();
+        distributedOutputDataSet = distributedInputDataSet.map(myDataProcessingFunction);
+        mapTime2 = java.lang.System.currentTimeMillis();
+
+
+        // 8. Create the result integration function
+        myResultIntegrationFunction = new MyResultIntegrationFunction();
+
+
+        // 9. Invoke the REDUCE function
+        // The actions imply:
+        // - The execution of the data processing funcion
+        // to each element of the distributedInputDataSet (RDD of Strings)
+        // generating the data of the distributedOutputDataSet (RDD of Integers)
+        // - The integration of all elements of the resulting distributedOutputDataSet
+        // so we get the integrated Result (one Integer)
+        reduceTime1 = java.lang.System.currentTimeMillis();
+        integratedResult = distributedOutputDataSet.reduce(myResultIntegrationFunction);
+        reduceTime2 = java.lang.System.currentTimeMillis();
+
+
+        // 10. Present the result and the times
+        System.out.println("----------> Size of input RDD:" + distributedInputDataSet.count());
+        System.out.println("----------> Size of output RDD:" + distributedOutputDataSet.count());
+        System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
+        System.out.println(" Result: " + integratedResult);
+        System.out.print(" Data Loading in Miliseconds: ");
+        System.out.println(dataLoadingTime2 - dataLoadingTime1);
+        System.out.print(" Map process in Miliseconds: ");
+        System.out.println(mapTime2 - mapTime1);
+        System.out.print(" Reduce process in Miliseconds: ");
+        System.out.println(reduceTime2 - reduceTime1);
+        System.out.print(" Data Processing in Miliseconds: ");
+        System.out.println(reduceTime2 - mapTime1);
+        System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
+
+
+    }//end main
+
+}//end SparkHelloWorldProject
