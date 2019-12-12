@@ -5,3 +5,8 @@ PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin;C:\Program Fil
 HADOOP_HOME=C:\apps\winutils\hadoop-2.7.1
 
 SPARK_HOME=C:\apps\spark-3.0.0-preview-bin-hadoop2.7
+
+JAVA_HOME=C:\Progra~1\Java\jre1.8.0_231\
+
+
+
