@@ -1,0 +1,7 @@
+SYSTEM VARIABLES:
+
+PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\libnvvp;;C:\xpressmp\bin;C:\xpressmp\workbench;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\CMake\bin;C:\Program Files\NVIDIA Corporation\Nsight Compute 2019.4.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\apps\spark-3.0.0-preview-bin-hadoop2.7\bin;c:\windows\system32
+
+HADOOP_HOME=C:\apps\winutils\hadoop-2.7.1
+
+SPARK_HOME=C:\apps\spark-3.0.0-preview-bin-hadoop2.7
